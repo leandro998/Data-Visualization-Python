@@ -61,14 +61,17 @@ years = list(map(str, range(1980, 2014)))
 # plt.show()
 
 # box for boxplot
-df_brazil = df_can.loc[['Brazil'], years].transpose()
-df_brazil.plot(kind='box')
-plt.title('Box plot of Brazilian Immigrants from 1980 - 2013')
-plt.ylabel('Number of Immigrants')
-plt.show()
+# df_brazil = df_can.loc[['Brazil'], years].transpose()
+# df_brazil.plot(kind='box')
+# plt.title('Box plot of Brazilian Immigrants from 1980 - 2013')
+# plt.ylabel('Number of Immigrants')
+# plt.show()
 
-# kde or density for density plots
 # area for area plots
+# df_top5 = df_can.sort_values(by='Total', ascending=False, axis=0).head(5)
+# df_top5 = df_top5[years].transpose()
+# df_top5.plot(kind='area')
+# plt.show()
 
 # Pie for pie plots
 # colors_list = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue', 'lightgreen', 'pink']
@@ -88,6 +91,63 @@ plt.show()
 # plt.show()
 
 # scatter for scatter plots
+# df_total = pd.DataFrame(df_can[years].sum(axis=0))
+# df_total.index = map(int, df_total.index)
+# df_total.reset_index(inplace=True)
+# df_total.columns = ['year', 'total']
+# df_total.plot(kind='scatter',
+#               x='year',
+#               y='total',
+#               figsize=(10, 6),
+#               color='darkblue')
+# input a tendency line:
+# plt.title('Total Immigration to Canada from 1980 - 2013')
+# plt.xlabel('Year')
+# plt.ylabel('Number of Immigrants')
+# x = df_total['year']
+# y = df_total['total']
+# fit = np.polyfit(x, y, deg=1)
+# plt.plot(x, fit[0] * x + fit[1], color='red') # recall that x is the Years
+# plt.annotate('y={0:.0f} x + {1:.0f}'.format(fit[0], fit[1]), xy=(2000, 150000)) # text
+# plt.show()
+# print('No. Immigrants = {0:.0f} * Year + {1:.0f}'.format(fit[0], fit[1])) # print to console
 
+# Bubble Plots (scatter plot + 1 variable)
+# df_can_t = df_can[years].transpose()
+# df_can_t.index = map(int, df_can_t.index)
+# df_can_t.index.name = 'Year'
+# df_can_t.reset_index(inplace=True)
+# # normalize Brazil data
+# norm_brazil = (df_can_t['Brazil'] - df_can_t['Brazil'].min()) \
+#               / (df_can_t['Brazil'].max() - df_can_t['Brazil'].min())
+# # normalize Argentina data
+# norm_argentina = (df_can_t['Argentina'] - df_can_t['Argentina'].min()) \
+#                  / (df_can_t['Argentina'].max() - df_can_t['Argentina'].min())
+# # Brazil
+# ax0 = df_can_t.plot(kind='scatter',
+#                     x='Year',
+#                     y='Brazil',
+#                     figsize=(14, 8),
+#                     alpha=0.5,  # transparency
+#                     color='green',
+#                     s=norm_brazil * 2000 + 10,  # pass in weights
+#                     xlim=(1975, 2015)
+#                    )
+#
+# # Argentina
+# ax1 = df_can_t.plot(kind='scatter',
+#                     x='Year',
+#                     y='Argentina',
+#                     alpha=0.5,
+#                     color="blue",
+#                     s=norm_argentina * 2000 + 10,
+#                     ax=ax0
+#                    )
+# ax0.set_ylabel('Number of Immigrants')
+# ax0.set_title('Immigration from Brazil and Argentina from 1980 - 2013')
+# ax0.legend(['Brazil', 'Argentina'], loc='upper left', fontsize='x-large')
+# plt.show()
 
 # hexbin for hexbin plot
+
+# kde or density for density plots
