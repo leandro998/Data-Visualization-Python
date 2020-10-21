@@ -48,9 +48,9 @@ years = list(map(str, range(1980, 2014)))
 
 # Bar chart, do not transpose:
 # top5_countries = df_top5.head(5)
-# bar: ascending=False; barh: ascending=True
+# # bar: ascending=False; barh: ascending=True
 # top5_countries = top5_countries.sort_values(by='Total', ascending=True, axis=0)
-# top5_countries['Total'].plot(kind='barh')
+# top5_countries['Total'].plot(kind='barh', color=['blue'])
 # plt.show()
 # print(top5_countries)
 
